@@ -473,14 +473,14 @@ const ptBR = {
           {
             name: "Chalé com Hidro 08",
             desc: "Chalé romântico equipado com banheira de hidromassagem exclusiva.",
-            image: "/src/assets/images/chale.png",
-            isGenericImage: true,
+            image: "/src/assets/images/chales/chale8.jpg",
+            isGenericImage: false,
           },
           {
             name: "Chalé com Hidro 10",
             desc: "Chalé romântico equipado com banheira de hidromassagem exclusiva.",
-            image: "/src/assets/images/chale.png",
-            isGenericImage: true,
+            image: "/src/assets/images/chales/chale10.jpeg",
+            isGenericImage: false,
           },
         ],
       },

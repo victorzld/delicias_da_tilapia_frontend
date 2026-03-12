@@ -488,14 +488,14 @@ const en = {
           {
             name: "Jacuzzi Chalet 08",
             desc: "Romantic chalet equipped with an exclusive jacuzzi.",
-            image: "/src/assets/images/chale.png",
-            isGenericImage: true,
+            image: "/src/assets/images/chales/chale8.jpg",
+            isGenericImage: false,
           },
           {
             name: "Jacuzzi Chalet 10",
             desc: "Romantic chalet equipped with an exclusive jacuzzi.",
-            image: "/src/assets/images/chale.png",
-            isGenericImage: true,
+            image: "/src/assets/images/chales/chale10.jpeg",
+            isGenericImage: false,
           },
         ],
       },
