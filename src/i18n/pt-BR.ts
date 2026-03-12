@@ -11,7 +11,7 @@ const ptBR = {
   hero: {
     subtitle: "Pousada & Restaurante",
     title: "Delícias da Tilápia",
-    description: "Sabores autênticos e natureza exuberante nas montanhas de Domingos Martins, ES",
+    description: "Sabores autênticos e natureza exuberante em Domingos Martins",
     cta: "Faça sua Reserva",
     menu: "Ver Cardápio",
   },
@@ -37,9 +37,9 @@ const ptBR = {
     subtitle: "Depoimentos",
     title: "O que dizem nossos visitantes",
     items: [
-      { name: "Maria Clara", text: "A tilápia grelhada é simplesmente espetacular! Um lugar maravilhoso para descansar com a família." },
-      { name: "João Paulo", text: "Os chalés são muito aconchegantes e a vista para as montanhas é de tirar o fôlego. Voltaremos com certeza!" },
-      { name: "Ana Beatriz", text: "O pesque e pague foi a diversão das crianças. Depois, comemos o peixe fresquinho no restaurante. Incrível!" },
+      { name: "Ivan luciano Oliveira", text: "Ficamos muito satisfeito. Chopp gelado , comida não demorou e a recepção da família e colaboradores foi ótima. Nota 10 atendeu e superou nossa expectativa." },
+      { name: "Elaine Brasil", text: "Fui no restaurante e almocei uma deliciosa tilápia com batatas. Comida gostosa e fresca! Recomendo!" },
+      { name: "Ráyra Santos", text: "Passei o feriado da semana santa na pousada, e não foi 10, foi 10000. O atendimento, os quartos, o café, o local, tudo exatamente tudo PERFEITO e de ótima qualidade!" },
     ],
   },
   location: {
@@ -199,12 +199,12 @@ const ptBR = {
     subtitle: "Explore",
     title: "Conheça Nossos Atrativos",
     items: [
-      { title: "Piscina Natural", desc: "Relaxe em nossa piscina cercada pela natureza e montanhas." },
-      { title: "Cachoeiras", desc: "Trilhas que levam a cachoeiras cristalinas na região." },
-      { title: "Trilhas Ecológicas", desc: "Caminhos em meio à Mata Atlântica com vistas panorâmicas." },
       { title: "Chalés Aconchegantes", desc: "Hospedagem rústica e charmosa nas montanhas." },
+      { title: "Labirinto Verde", desc: "Caminhos em meio à mata das montanhas capixabas." },
+      { title: "Parquinho Infantil", desc: "Diversão garantida para os pequenos." },
+      { title: "Piscina", desc: "Relaxe em nossa piscina cercada pela natureza e montanhas." },
       { title: "Pesque e Pague", desc: "Diversão garantida para toda a família." },
-      { title: "Gastronomia", desc: "Pratos típicos à base de tilápia fresquinha." },
+      { title: "Culinária", desc: "Pratos típicos à base de tilápia fresquinha." },
     ],
   },
   social: {
