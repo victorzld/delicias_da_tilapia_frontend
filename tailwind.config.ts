@@ -14,8 +14,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        heading: ['Playfair Display', 'serif'],
-        body: ['Lato', 'sans-serif'],
+        sans: ["Nunito", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
