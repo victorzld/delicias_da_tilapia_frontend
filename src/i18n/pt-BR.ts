@@ -18,7 +18,8 @@ const ptBR = {
   highlights: {
     subtitle: "O que oferecemos",
     title: "Uma experiência completa",
-    description: "Gastronomia, hospedagem e lazer em um só lugar, em meio às montanhas capixabas.",
+    description:
+      "Gastronomia, hospedagem e lazer em um só lugar, em meio às montanhas capixabas.",
     restaurant: {
       title: "Restaurante",
       desc: "Pratos à base de tilápia preparados com receitas tradicionais da família, ingredientes frescos e muito sabor.",
@@ -37,20 +38,31 @@ const ptBR = {
     subtitle: "Depoimentos",
     title: "O que dizem nossos visitantes",
     items: [
-      { name: "Ivan luciano Oliveira", text: "Ficamos muito satisfeito. Chopp gelado , comida não demorou e a recepção da família e colaboradores foi ótima. Nota 10 atendeu e superou nossa expectativa." },
-      { name: "Elaine Brasil", text: "Fui no restaurante e almocei uma deliciosa tilápia com batatas. Comida gostosa e fresca! Recomendo!" },
-      { name: "Ráyra Santos", text: "Passei o feriado da semana santa na pousada, e não foi 10, foi 10000. O atendimento, os quartos, o café, o local, tudo exatamente tudo PERFEITO e de ótima qualidade!" },
+      {
+        name: "Ivan luciano Oliveira",
+        text: "Ficamos muito satisfeito. Chopp gelado , comida não demorou e a recepção da família e colaboradores foi ótima. Nota 10 atendeu e superou nossa expectativa.",
+      },
+      {
+        name: "Elaine Brasil",
+        text: "Fui no restaurante e almocei uma deliciosa tilápia com batatas. Comida gostosa e fresca! Recomendo!",
+      },
+      {
+        name: "Ráyra Santos",
+        text: "Passei o feriado da semana santa na pousada, e não foi 10, foi 10000. O atendimento, os quartos, o café, o local, tudo exatamente tudo PERFEITO e de ótima qualidade!",
+      },
     ],
   },
   location: {
     subtitle: "Como chegar",
     title: "Nossa Localização",
-    description: "Estamos no Circuito Turístico do Chapéu, em Domingos Martins – ES",
+    description:
+      "Estamos no Circuito Turístico do Chapéu, em Domingos Martins – ES",
     openMaps: "Abrir no Google Maps",
   },
   cta: {
     title: "Venha viver essa experiência",
-    description: "Reserve agora e desfrute do melhor da gastronomia e hospitalidade nas montanhas capixabas.",
+    description:
+      "Reserve agora e desfrute do melhor da gastronomia e hospitalidade nas montanhas capixabas.",
     whatsapp: "WhatsApp",
     contact: "Fale Conosco",
   },
@@ -59,17 +71,26 @@ const ptBR = {
     historySubtitle: "Nossa História",
     historyTitle: "Tradição e sabor desde a origem",
     paragraphs: [
-      'O <strong>Delícias da Tilápia</strong> nasceu do amor de uma família pela culinária e pela natureza. Localizado no Circuito Turístico do Chapéu, em Domingos Martins – ES, nosso espaço foi construído para proporcionar uma experiência completa de gastronomia, hospedagem e lazer.',
-      'Tudo começou com receitas familiares à base de tilápia, peixe criado em nossos próprios tanques, alimentado com cuidado e qualidade. Com o tempo, o restaurante se tornou referência na região, atraindo visitantes de todo o Espírito Santo e de outros estados.',
-      'Além do restaurante, oferecemos chalés aconchegantes para hospedagem e um pesque e pague para quem quer diversão em família. Tudo isso cercado por montanhas, mata nativa e muito ar puro.',
-      'Nossa missão é simples: fazer cada visitante se sentir em casa, com comida de qualidade, atendimento caloroso e uma conexão genuína com a natureza.',
+      "O <strong>Delícias da Tilápia</strong> nasceu do amor de uma família pela culinária e pela natureza. Localizado no Circuito Turístico do Chapéu, em Domingos Martins – ES, nosso espaço foi construído para proporcionar uma experiência completa de gastronomia, hospedagem e lazer.",
+      "Tudo começou com receitas familiares à base de tilápia, peixe criado em nossos próprios tanques, alimentado com cuidado e qualidade. Com o tempo, o restaurante se tornou referência na região, atraindo visitantes de todo o Espírito Santo e de outros estados.",
+      "Além do restaurante, oferecemos chalés aconchegantes para hospedagem e um pesque e pague para quem quer diversão em família. Tudo isso cercado por montanhas, mata nativa e muito ar puro.",
+      "Nossa missão é simples: fazer cada visitante se sentir em casa, com comida de qualidade, atendimento caloroso e uma conexão genuína com a natureza.",
     ],
     valuesSubtitle: "Nossos Valores",
     valuesTitle: "O que nos guia",
     values: [
-      { title: "Tradição Familiar", desc: "Receitas passadas de geração em geração, com o sabor de casa." },
-      { title: "Natureza", desc: "Respeito ao meio ambiente e integração com a paisagem das montanhas capixabas." },
-      { title: "Hospitalidade", desc: "Recebemos cada visitante como parte da nossa família." },
+      {
+        title: "Tradição Familiar",
+        desc: "Receitas passadas de geração em geração, com o sabor de casa.",
+      },
+      {
+        title: "Natureza",
+        desc: "Respeito ao meio ambiente e integração com a paisagem das montanhas capixabas.",
+      },
+      {
+        title: "Hospitalidade",
+        desc: "Recebemos cada visitante como parte da nossa família.",
+      },
     ],
   },
   restaurantPage: {
@@ -77,37 +98,262 @@ const ptBR = {
     heroSubtitle: "Sabor autêntico direto do tanque para a sua mesa",
     kitchenSubtitle: "Nossa Cozinha",
     kitchenTitle: "Do tanque à mesa, com todo carinho",
-    kitchenP1: "Nossa tilápia é criada em tanques próprios, com alimentação de qualidade, garantindo frescor e sabor incomparáveis. Cada prato é preparado com receitas que passam de geração em geração na nossa família.",
-    kitchenP2: "Funcionamos aos sábados, domingos e feriados, das 11h às 17h. Reservas são recomendadas para grupos grandes.",
+    kitchenP1:
+      "Nossa tilápia é criada em tanques próprios, com alimentação de qualidade, garantindo frescor e sabor incomparáveis. Cada prato é preparado com receitas que passam de geração em geração na nossa família.",
+    kitchenP2: "Funcionamos de quinta à domingo das 8h às 21h.",
     menuSubtitle: "Cardápio",
     menuTitle: "Nossos Pratos",
-    menuDescription: "Confira as opções do nosso cardápio. Preços sujeitos a alteração.",
+    menuDescription:
+      "Confira as opções do nosso cardápio. Preços sujeitos a alteração.",
     toConsult: "A consultar",
     categories: [
       {
-        name: "Pratos Principais",
+        name: "Porções e Entradas",
         items: [
-          { name: "Tilápia Grelhada", desc: "Filé de tilápia grelhado com ervas finas, acompanha arroz, pirão e salada" },
-          { name: "Tilápia Frita", desc: "Tilápia inteira frita crocante, acompanha arroz, feijão tropeiro e vinagrete" },
-          { name: "Tilápia ao Molho de Camarão", desc: "Filé de tilápia com molho cremoso de camarão e arroz branco" },
-          { name: "Tilápia Empanada", desc: "Filé empanado com farinha panko, acompanha batata frita e salada" },
-          { name: "Moqueca de Tilápia", desc: "Moqueca capixaba com leite de coco, pimentões e coentro fresco" },
+          { name: "Aipim Frito", desc: "400g", price: 25 },
+          { name: "Batata Frita", desc: "350g", price: 29 },
+          {
+            name: "Batata Frita Especial",
+            desc: "350g de batata frita coberta com cheddar e bacon",
+            price: 39,
+          },
+          {
+            name: "Bolinho de Filé de Tilápia",
+            desc: "15 unidades",
+            price: 58,
+          },
+          { name: "Camarão Frito sem Casca", desc: "15 unidades", price: 89 },
+          {
+            name: "Camarão na Manteiga sem Casca",
+            desc: "15 unidades - servido com vinagrete",
+            price: 109,
+          },
+          { name: "Carne de Sol com Aipim", desc: "400g de cada", price: 99 },
+          { name: "Tilápia em Cubos com Tomate", desc: "350g", price: 76 },
+          {
+            name: "Tilápia em Cubos com Fritas",
+            desc: "350g de cada",
+            price: 85,
+          },
+          { name: "Mignon à Palito com Tomate", desc: "350g", price: 89 },
+          { name: "Mignon à Palito com Fritas", desc: "350g cada", price: 105 },
+          {
+            name: "Kieber de Frango com Salada",
+            desc: "15 unidades",
+            price: 79,
+          },
+          {
+            name: "Kieber de Frango com Fritas",
+            desc: "15 unidades e 350g de fritas",
+            price: 89,
+          },
+          { name: "Lambari Frito", desc: "200g", price: 45 },
+          { name: "Linguiça com Aipim e Banana", desc: "950g", price: 88 },
+          { name: "Linguiça com Tomate", desc: "350g", price: 64 },
+          { name: "Pastel de Tilápia", desc: "12 unidades", price: 65 },
+          { name: "Polenta Frita", desc: "350g", price: 33 },
+          {
+            name: "Tilápia Pescada Frita",
+            desc: "você pesca e nós preparamos. valor do kg",
+            price: 65,
+          },
         ],
       },
       {
-        name: "Porções e Entradas",
+        name: "Guarnições",
         items: [
-          { name: "Bolinho de Tilápia", desc: "Porção com 10 unidades, acompanha molho tártaro" },
-          { name: "Casquinha de Siri", desc: "Siri desfiado gratinado com queijo na casquinha" },
-          { name: "Porção de Batata Frita", desc: "Batata frita crocante" },
+          { name: "Arroz", desc: "", price: 28 },
+          { name: "Feijão", desc: "", price: 28 },
+          { name: "Banana Frita", desc: "", price: 28 },
+          { name: "Pirão", desc: "", price: 28 },
+          { name: "Moqueca de Banana", desc: "", price: 28 },
+          { name: "Salada de Tomate", desc: "", price: 28 },
+        ],
+      },
+      {
+        name: "Moquecas",
+        items: [
+          {
+            name: "Moqueca de Filé de Tilápia",
+            desc: "acompanha arroz, pirão, moqueca de banana e salada",
+            price: 195,
+          },
+          {
+            name: "Moqueca Mista de Filé de Tilápia e Camarão",
+            desc: "acompanha arroz, pirão, moqueca de banana e salada",
+            price: 225,
+          },
+          {
+            name: "Moqueca de Camarão",
+            desc: "acompanha arroz, pirão, moqueca de banana e salada",
+            price: 235,
+          },
+        ],
+      },
+      {
+        name: "Especial",
+        items: [
+          {
+            name: "Galinha Caipira (acompanha arroz, polenta, purê de batata e salada)",
+            desc: "Somente por encomenda, serve bem de 2 a 3 pessoas.",
+            price: 220,
+          },
+        ],
+      },
+      {
+        name: "Kids Menu",
+        items: [
+          {
+            name: "Tilapinha",
+            desc: "Filé de tilápia gralhada ou empanado, com arroz, feijão e fritas",
+            price: 55,
+          },
+          {
+            name: "Franguinho",
+            desc: "Filé de frango grelhado ou empanado, servico com arroz, feijão e fritas.",
+            price: 55,
+          },
+        ],
+      },
+      {
+        name: "Pratos Principais",
+        items: [
+          {
+            name: "Tilápia aos Quatro Queijos",
+            desc: "acompanha arroz e salada",
+            price: 176,
+          },
+          {
+            name: "Tilápia aos Quatro Queijos com Camarão",
+            desc: "6 camarões. acompanha arroz e salada",
+            price: 198,
+          },
+          {
+            name: "Filé de Tilápia Empanado",
+            desc: "acompanha arroz, pirão, moqueca de banana e salada",
+            price: 185,
+          },
+          {
+            name: "Filé de Tilápia Grelhado",
+            desc: "acompanha arroz, pirão e salada",
+            price: 165,
+          },
+          {
+            name: "Medalhão de Tilápia",
+            desc: "filé de tilápia com recheio de bacon. acompanha arroz, pirão, salada e camarão frito",
+            price: 185,
+          },
+          {
+            name: "Escondidinho de Tilápia com Palmito e Bacon",
+            desc: "acompanha arroz e vinagrete",
+            price: 175,
+          },
+          {
+            name: "Fisch mit Kartoffel",
+            desc: "filé de tilápia grelhado servido com batatas cozidas. acompanha arroz e salada",
+            price: 165,
+          },
         ],
       },
       {
         name: "Bebidas",
         items: [
-          { name: "Sucos Naturais", desc: "Variedade de sucos de frutas da estação" },
-          { name: "Refrigerantes", desc: "Diversas opções" },
-          { name: "Cervejas", desc: "Long neck e garrafas" },
+          { name: "Água Mineral", desc: "", price: 5 },
+          { name: "Água Mineral com Gás", desc: "", price: 7 },
+          { name: "Água Tônica", desc: "", price: 8 },
+          { name: "H2OH!", desc: "", price: 8 },
+          { name: "Refrigerante Lata / KS", desc: "", price: 8 },
+          { name: "Refrigerante 1 L", desc: "", price: 12 },
+          { name: "Refrigerante 1,5 Lts", desc: "", price: 17 },
+          { name: "Energético", desc: "", price: 20 },
+          { name: "Suco Copo", desc: "350 ml", price: 10 },
+          { name: "Suco Jarra", desc: "700 ml", price: 17 },
+          {
+            name: "Suco Jarra",
+            desc: "1 LT - laranja, acerola ou maracujá",
+            price: 28,
+          },
+        ],
+      },
+      {
+        name: "Cervejas",
+        items: [
+          { name: "Heineken", desc: "Garrafa 600 ml", price: 17 },
+          { name: "Original", desc: "Garrafa 600 ml", price: 17 },
+          { name: "Amstel", desc: "Garrafa 600 ml", price: 15 },
+          { name: "Brahma", desc: "Garrafa 600 ml", price: 15 },
+          { name: "Heineken", desc: "Long Neck", price: 12 },
+          { name: "Heineken 0,0%", desc: "Long Neck", price: 12 },
+          { name: "Corona", desc: "Long Neck", price: 12 },
+          { name: "Budweiser", desc: "Long Neck", price: 12 },
+          { name: "IPA", desc: "Chope - 500 ml | 300 ml", price: [25, 20] },
+          { name: "Pilsen", desc: "Chope - 500 ml | 300 ml", price: [20, 18] },
+          {
+            name: "De Vinho",
+            desc: "Chope - 500 ml | 300 ml",
+            price: [25, 20],
+          },
+        ],
+      },
+      {
+        name: "Vinho Taça",
+        items: [
+          { name: "Uva suave ou seco", desc: "", price: 22 },
+          { name: "Jabuticaba suave ou semi seco", desc: "", price: 22 },
+          {
+            name: "Garrafa Vinho",
+            desc: "Consulte-nos sobre rótulos e valores. Visite nossa adega",
+            //price: 0,
+          },
+        ],
+      },
+      {
+        name: "Drinks",
+        items: [
+          {
+            name: "Raio de Sol",
+            desc: "gin, concentrado de maracujá, xarope de morango e água com gás",
+            price: 45,
+          },
+          {
+            name: "Primavera",
+            desc: "vodka, xarope de tangerina, energético tropical e canela",
+            price: 38,
+          },
+          { name: "Caipirinha", desc: "cachaça, limão e açúcar", price: 28 },
+          { name: "Caipivodka", desc: "vodka, limão e açúcar", price: 28 },
+          {
+            name: "Caipifruta",
+            desc: "vodka, frutas vermelhas ou morango e açúcar",
+            price: 38,
+          },
+          {
+            name: "Gin Tônica",
+            desc: "gin, água tônica, fruta à sua escolha e açúcar. OPÇÕES DE FRUTAS: limão, morango ou frutas vermelhas",
+            price: 38,
+          },
+          {
+            name: "Havai",
+            desc: "maracujá, leite condensado e energético",
+            price: 28,
+          },
+          {
+            name: "Soda Italiana",
+            desc: "água com gás, xarope de fruta à sua escolha e gelo. OPÇÕES DE XAROPES: maçã-verde ou morango",
+            price: 28,
+          },
+        ],
+      },
+      {
+        name: "Doses",
+        items: [
+          { name: "Cachaça Especial", desc: "", price: 10 },
+          { name: "Vodka", desc: "", price: 15 },
+          { name: "Hunderberg", desc: "", price: 10 },
+          { name: "Whisky", desc: "", price: 25 },
+          { name: "Campari", desc: "", price: 20 },
+          { name: "Gengibre", desc: "", price: 10 },
+          { name: "Paratudo", desc: "", price: 10 },
         ],
       },
     ],
@@ -117,8 +363,10 @@ const ptBR = {
     heroSubtitle: "Descanse em meio à natureza",
     lodgingSubtitle: "Hospedagem",
     lodgingTitle: "Chalés aconchegantes nas montanhas",
-    lodgingP1: "Nossos 11 chalés foram projetados para oferecer conforto e contato direto com a natureza. Cada unidade conta com varanda, frigobar, e uma vista deslumbrante para as montanhas de Domingos Martins.",
-    lodgingP2: "Alguns chalés contam com hidromassagem e acomodam até 4 pessoas, sendo perfeitos para famílias ou casais em busca de uma escapada romântica.",
+    lodgingP1:
+      "Nossos 11 chalés foram projetados para oferecer conforto e contato direto com a natureza. Cada unidade conta com varanda, frigobar, e uma vista deslumbrante para as montanhas de Domingos Martins.",
+    lodgingP2:
+      "Alguns chalés contam com hidromassagem e acomodam até 4 pessoas, sendo perfeitos para famílias ou casais em busca de uma escapada romântica.",
     amenities: {
       wifi: "Wi-Fi",
       mountain: "Vista para montanhas",
@@ -127,14 +375,35 @@ const ptBR = {
     },
     chaletsSubtitle: "Acomodações",
     chaletsTitle: "Nossos Chalés",
-    chaletsDescription: "Confira nossas opções de hospedagem. Entre em contato para valores atualizados.",
+    chaletsDescription:
+      "Confira nossas opções de hospedagem. Entre em contato para valores atualizados.",
     toConsult: "A consultar",
     chalets: [
-      { name: "Chalé 1 a 5", desc: "Chalés simples para casal, com varanda e vista para as montanhas.", capacity: "2 pessoas" },
-      { name: "Chalé 6 e 7", desc: "Chalés com 2 quartos, ideais para famílias.", capacity: "4 pessoas" },
-      { name: "Chalé 8 e 10", desc: "Chalés com hidromassagem, perfeitos para casais.", capacity: "2 pessoas" },
-      { name: "Chalé 9", desc: "Chalé padrão com varanda e vista panorâmica.", capacity: "2 pessoas" },
-      { name: "Chalé 11", desc: "Chalé com 2 quartos e espaço amplo.", capacity: "4 pessoas" },
+      {
+        name: "Chalé 1 a 5",
+        desc: "Chalés simples para casal, com varanda e vista para as montanhas.",
+        capacity: "2 pessoas",
+      },
+      {
+        name: "Chalé 6 e 7",
+        desc: "Chalés com 2 quartos, ideais para famílias.",
+        capacity: "4 pessoas",
+      },
+      {
+        name: "Chalé 8 e 10",
+        desc: "Chalés com hidromassagem, perfeitos para casais.",
+        capacity: "2 pessoas",
+      },
+      {
+        name: "Chalé 9",
+        desc: "Chalé padrão com varanda e vista panorâmica.",
+        capacity: "2 pessoas",
+      },
+      {
+        name: "Chalé 11",
+        desc: "Chalé com 2 quartos e espaço amplo.",
+        capacity: "4 pessoas",
+      },
     ],
     jacuzziNote: "* Hidromassagem disponível apenas nos chalés 8 e 10",
   },
@@ -143,7 +412,8 @@ const ptBR = {
     heroSubtitle: "Diversão para toda a família",
     subtitle: "A experiência",
     title: "Pesque seu próprio peixe",
-    description: "Uma atividade divertida e relaxante em meio à natureza exuberante das montanhas capixabas.",
+    description:
+      "Uma atividade divertida e relaxante em meio à natureza exuberante das montanhas capixabas.",
     p1: "Nosso Pesque e Pague oferece tanques com tilápias saudáveis e bem alimentadas. Você pesca, nós preparamos! O peixe pode ser preparado no nosso restaurante da forma que preferir: grelhado, frito ou empanado.",
     p2: "É a atividade perfeita para famílias, crianças e amigos. Fornecemos varas e iscas. Não é necessária experiência prévia – a diversão é garantida!",
     features: [
@@ -159,11 +429,13 @@ const ptBR = {
   contactPage: {
     subtitle: "Fale conosco",
     title: "Entre em Contato",
-    description: "Será um prazer atendê-lo. Entre em contato pelos canais abaixo ou envie uma mensagem.",
+    description:
+      "Será um prazer atendê-lo. Entre em contato pelos canais abaixo ou envie uma mensagem.",
     phoneLabel: "Telefone / WhatsApp",
     emailLabel: "E-mail",
     addressLabel: "Endereço",
-    addressValue: "Circuito Turístico do Chapéu\nDomingos Martins – ES, 29260-000",
+    addressValue:
+      "Circuito Turístico do Chapéu\nDomingos Martins – ES, 29260-000",
     hoursLabel: "Horário",
     hoursValue: "Sábados, Domingos e Feriados\n11h às 17h",
     form: {
@@ -199,12 +471,30 @@ const ptBR = {
     subtitle: "Explore",
     title: "Conheça Nossos Atrativos",
     items: [
-      { title: "Chalés Aconchegantes", desc: "Hospedagem rústica e charmosa nas montanhas." },
-      { title: "Labirinto Verde", desc: "Caminhos em meio à mata das montanhas capixabas." },
-      { title: "Parquinho Infantil", desc: "Diversão garantida para os pequenos." },
-      { title: "Piscina", desc: "Relaxe em nossa piscina cercada pela natureza e montanhas." },
-      { title: "Pesque e Pague", desc: "Diversão garantida para toda a família." },
-      { title: "Culinária", desc: "Pratos típicos à base de tilápia fresquinha." },
+      {
+        title: "Chalés Aconchegantes",
+        desc: "Hospedagem rústica e charmosa nas montanhas.",
+      },
+      {
+        title: "Labirinto Verde",
+        desc: "Caminhos em meio à mata das montanhas capixabas.",
+      },
+      {
+        title: "Parquinho Infantil",
+        desc: "Diversão garantida para os pequenos.",
+      },
+      {
+        title: "Piscina",
+        desc: "Relaxe em nossa piscina cercada pela natureza e montanhas.",
+      },
+      {
+        title: "Pesque e Pague",
+        desc: "Diversão garantida para toda a família.",
+      },
+      {
+        title: "Culinária",
+        desc: "Pratos típicos à base de tilápia fresquinha.",
+      },
     ],
   },
   social: {
@@ -214,7 +504,8 @@ const ptBR = {
     instagramFollowers: "+74 mil seguidores",
   },
   footer: {
-    description: "Pousada e Restaurante no coração das montanhas capixabas. Uma experiência gastronômica única em meio à natureza.",
+    description:
+      "Pousada e Restaurante no coração das montanhas capixabas. Uma experiência gastronômica única em meio à natureza.",
     navigation: "Navegação",
     contact: "Contato",
     rights: "Todos os direitos reservados.",
