@@ -25,11 +25,20 @@ const Navbar = () => {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border">
-      <div className="container mx-auto grid grid-cols-3 items-center h-24 px-4 lg:px-8">
+      {/* A mágica acontece aqui: grid-cols-2 no mobile, lg:grid-cols-3 no desktop */}
+      <div className="container mx-auto grid grid-cols-2 lg:grid-cols-3 items-center h-24 px-4 lg:px-8">
         {/* Left: Logo */}
         <div className="justify-self-start">
-          <Link to="/" aria-label="Início" className="inline-flex items-center gap-2">
-            <img src={logo} alt="Delícias da Tilápia" className="w-24 h-24 object-contain lg:w-24 lg:h-24" />
+          <Link
+            to="/"
+            aria-label="Início"
+            className="inline-flex items-center gap-2"
+          >
+            <img
+              src={logo}
+              alt="Delícias da Tilápia"
+              className="w-24 h-24 object-contain lg:w-24 lg:h-24"
+            />
           </Link>
         </div>
 

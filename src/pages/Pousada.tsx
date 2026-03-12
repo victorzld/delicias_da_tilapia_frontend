@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { Users, Waves, Mountain, Wifi } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import chaleImg from "@/assets/chale.jpg";
 import SectionTitle from "@/components/SectionTitle";
 import chales from "@/assets/images/atrativos/chales.jpg";
 import chale from "@/assets/images/chale.png";
@@ -15,10 +14,21 @@ const fadeUp = {
 
 const Pousada = () => {
   const { t } = useTranslation();
+
+  // Atualizado com a propriedade price
   const chalets = t("innPage.chalets", { returnObjects: true }) as Array<{
     name: string;
     desc: string;
     capacity: string;
+    price: number;
+  }>;
+
+  // Carregando as taxas adicionais que criamos no pt-BR.ts
+  const additionalPricing = t("innPage.additionalPricing", {
+    returnObjects: true,
+  }) as Array<{
+    label: string;
+    price: number | string;
   }>;
 
   const amenities = [
@@ -73,10 +83,10 @@ const Pousada = () => {
               <h2 className="font-heading text-3xl font-bold text-foreground mt-2 mb-4">
                 {t("innPage.lodgingTitle")}
               </h2>
-              <p className="text-muted-foreground leading-relaxed mb-4">
+              <p className="text-justify text-muted-foreground leading-relaxed mb-4">
                 {t("innPage.lodgingP1")}
               </p>
-              <p className="text-muted-foreground leading-relaxed">
+              <p className="text-justify text-muted-foreground leading-relaxed">
                 {t("innPage.lodgingP2")}
               </p>
               <div className="grid grid-cols-2 gap-4 mt-8">
@@ -122,14 +132,54 @@ const Pousada = () => {
                     </span>
                   </div>
                 </div>
-                <div className="text-right">
-                  <span className="text-primary font-bold">
-                    {t("innPage.toConsult")}
+
+                {/* Modificado para renderizar o Preço */}
+                <div className="text-left sm:text-right mt-2 sm:mt-0">
+                  <span className="text-primary font-bold text-xl block">
+                    {c.price.toLocaleString("pt-BR", {
+                      style: "currency",
+                      currency: "BRL",
+                    })}
+                  </span>
+                  <span className="text-xs text-muted-foreground block">
+                    1 diária / casal
                   </span>
                 </div>
               </motion.div>
             ))}
           </div>
+
+          {/* Seção Nova: Valores Adicionais */}
+          {additionalPricing && additionalPricing.length > 0 && (
+            <motion.div
+              {...fadeUp}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="mt-8 bg-background rounded-xl p-6 shadow-soft"
+            >
+              <h4 className="font-heading text-md font-bold text-foreground border-b border-border pb-2 mb-4">
+                Valores para Pessoa Adicional / Pet
+              </h4>
+              <div className="grid sm:grid-cols-2 gap-4">
+                {additionalPricing.map((item, idx) => (
+                  <div
+                    key={idx}
+                    className="flex justify-between items-center text-sm"
+                  >
+                    <span className="text-muted-foreground">{item.label}</span>
+                    <span className="font-semibold text-primary">
+                      {typeof item.price === "number"
+                        ? item.price.toLocaleString("pt-BR", {
+                            style: "currency",
+                            currency: "BRL",
+                          })
+                        : item.price}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          )}
+
           <p className="text-xs text-muted-foreground text-center mt-6">
             {t("innPage.jacuzziNote")}
           </p>

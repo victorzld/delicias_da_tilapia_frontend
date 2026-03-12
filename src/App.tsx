@@ -7,6 +7,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import WhatsAppButton from "./components/WhatsAppButton";
 import BookingBar from "./components/BookingBar";
+import ScrollToTop from "./components/ScrollToTop"; // <-- Adicione esta importação
 import Index from "./pages/Index";
 import SobreNos from "./pages/SobreNos";
 import Restaurante from "./pages/Restaurante";
@@ -23,6 +24,8 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop />{" "}
+        {/* <-- Coloque o componente aqui, dentro do BrowserRouter */}
         <Navbar />
         <Routes>
           <Route path="/" element={<Index />} />
