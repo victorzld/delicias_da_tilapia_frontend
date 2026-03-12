@@ -1,5 +1,16 @@
-import { motion } from "framer-motion";
-import { Users, Waves, Mountain, Wifi } from "lucide-react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  Users,
+  Waves,
+  Mountain,
+  Wifi,
+  ChevronDown,
+  ChevronUp,
+  ChevronLeft,
+  ChevronRight,
+  Image as ImageIcon,
+} from "lucide-react";
 import { useTranslation } from "react-i18next";
 import SectionTitle from "@/components/SectionTitle";
 import chales from "@/assets/images/atrativos/chales.jpg";
@@ -15,15 +26,42 @@ const fadeUp = {
 const Pousada = () => {
   const { t } = useTranslation();
 
-  // Atualizado com a propriedade price
+  // Estados para controlar o item expandido e o slide atual
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  // Lógica para abrir/fechar a sanfona (accordion)
+  const handleExpand = (index: number) => {
+    if (expandedIndex === index) {
+      setExpandedIndex(null); // Fecha se clicar no mesmo
+    } else {
+      setExpandedIndex(index);
+      setCurrentSlide(0); // Reseta o slide ao abrir um novo
+    }
+  };
+
+  const nextSlide = (total: number) => {
+    setCurrentSlide((prev) => (prev + 1) % total);
+  };
+
+  const prevSlide = (total: number) => {
+    setCurrentSlide((prev) => (prev === 0 ? total - 1 : prev - 1));
+  };
+
+  // Tipagem atualizada para receber a nova propriedade 'isGenericImage'
   const chalets = t("innPage.chalets", { returnObjects: true }) as Array<{
     name: string;
     desc: string;
     capacity: string;
     price: number;
+    units: Array<{
+      name: string;
+      desc: string;
+      image: string;
+      isGenericImage?: boolean;
+    }>;
   }>;
 
-  // Carregando as taxas adicionais que criamos no pt-BR.ts
   const additionalPricing = t("innPage.additionalPricing", {
     returnObjects: true,
   }) as Array<{
@@ -112,58 +150,212 @@ const Pousada = () => {
             title={t("innPage.chaletsTitle")}
             description={t("innPage.chaletsDescription")}
           />
-          <div className="space-y-4">
+
+          <div className="space-y-6">
             {chalets.map((c, i) => (
               <motion.div
                 key={i}
                 {...fadeUp}
                 transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="bg-background rounded-xl p-6 shadow-soft flex flex-col sm:flex-row sm:items-center justify-between gap-4"
+                className="bg-background rounded-xl shadow-soft overflow-hidden border border-transparent transition-colors hover:border-primary/20"
               >
-                <div>
-                  <h3 className="font-heading text-lg font-bold text-foreground">
-                    {c.name}
-                  </h3>
-                  <p className="text-sm text-muted-foreground mt-1">{c.desc}</p>
-                  <div className="flex items-center gap-2 mt-2">
-                    <Users className="w-4 h-4 text-primary" />
-                    <span className="text-xs text-muted-foreground">
-                      {c.capacity}
+                {/* Header clicável para expandir */}
+                <div
+                  onClick={() => handleExpand(i)}
+                  className="p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 cursor-pointer select-none group"
+                >
+                  <div className="flex-1">
+                    <h3 className="font-heading text-lg font-bold text-foreground group-hover:text-primary transition-colors">
+                      {c.name}
+                    </h3>
+                    <p className="text-sm text-muted-foreground mt-1">
+                      {c.desc}
+                    </p>
+                    <div className="flex flex-wrap items-center gap-4 mt-3">
+                      <div className="flex items-center gap-2">
+                        <Users className="w-4 h-4 text-primary" />
+                        <span className="text-xs font-medium text-foreground">
+                          {c.capacity}
+                        </span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <span className="text-sm font-bold text-primary">
+                          {c.price.toLocaleString("pt-BR", {
+                            style: "currency",
+                            currency: "BRL",
+                          })}
+                        </span>
+                        <span className="text-xs text-muted-foreground">
+                          / diária
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center justify-center sm:justify-end gap-2 mt-4 sm:mt-0 text-primary bg-primary/5 px-4 py-2 rounded-lg">
+                    <span className="text-sm font-semibold">
+                      {expandedIndex === i
+                        ? t("innPage.hideOptions")
+                        : t("innPage.expandOptions")}
                     </span>
+                    {expandedIndex === i ? (
+                      <ChevronUp className="w-4 h-4" />
+                    ) : (
+                      <ChevronDown className="w-4 h-4" />
+                    )}
                   </div>
                 </div>
 
-                {/* Modificado para renderizar o Preço */}
-                <div className="text-left sm:text-right mt-2 sm:mt-0">
-                  <span className="text-primary font-bold text-xl block">
-                    {c.price.toLocaleString("pt-BR", {
-                      style: "currency",
-                      currency: "BRL",
-                    })}
-                  </span>
-                  <span className="text-xs text-muted-foreground block">
-                    1 diária / casal
-                  </span>
-                </div>
+                {/* Área Expandida com Slide */}
+                <AnimatePresence>
+                  {expandedIndex === i && c.units && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      className="bg-muted/30 border-t border-border"
+                    >
+                      <div className="py-8 relative">
+                        {c.units.map((unit, uIdx) => (
+                          <div
+                            key={uIdx}
+                            className={`transition-opacity duration-300 px-12 md:px-16 ${uIdx === currentSlide ? "block opacity-100" : "hidden opacity-0"}`}
+                          >
+                            <div className="flex flex-col md:flex-row gap-6 md:gap-8">
+                              {/* Lado Esquerdo: Imagem + Aviso Condicional */}
+                              <div className="w-full md:w-1/2 flex flex-col gap-2">
+                                <div className="w-full aspect-video bg-muted rounded-xl flex flex-col items-center justify-center text-muted-foreground border border-border overflow-hidden relative">
+                                  {unit.image ? (
+                                    <img
+                                      src={unit.image}
+                                      alt={unit.name}
+                                      className="w-full h-full object-cover absolute inset-0"
+                                    />
+                                  ) : (
+                                    <>
+                                      <ImageIcon className="w-10 h-10 mb-2 opacity-50" />
+                                      <span className="text-sm font-medium">
+                                        Foto de {unit.name}
+                                      </span>
+                                    </>
+                                  )}
+                                </div>
+                                {/* Aviso condicional renderizado logo abaixo da imagem */}
+                                {unit.isGenericImage && (
+                                  <p className="text-[11px] leading-tight text-muted-foreground text-center italic mt-1">
+                                    {unit.name
+                                      .toLowerCase()
+                                      .includes("suíte") ||
+                                    unit.name.toLowerCase().includes("suite")
+                                      ? t("innPage.genericImageNoteSuite")
+                                      : t("innPage.genericImageNoteChale")}
+                                  </p>
+                                )}
+                              </div>
+
+                              {/* Lado Direito: Informações e Botão */}
+                              <div className="w-full md:w-1/2 flex flex-col justify-center">
+                                {/* 1ª Linha (Inline): Nome e Descrição */}
+                                <div className="flex flex-col xl:flex-col xl:items-start justify-between gap-2 mb-6 border-b border-border/30 pb-4">
+                                  <h4 className="font-heading text-lg font-bold text-foreground shrink-0">
+                                    {unit.name}
+                                  </h4>
+                                  <p className="text-muted-foreground text-sm xl:text-left">
+                                    {unit.desc}
+                                  </p>
+                                </div>
+
+                                {/* 2ª Linha (Inline): Preço e Botão menores */}
+                                <div className="flex flex-row justify-between items-center mt-auto">
+                                  <div className="flex flex-col">
+                                    <span className="text-lg font-bold text-primary">
+                                      {c.price.toLocaleString("pt-BR", {
+                                        style: "currency",
+                                        currency: "BRL",
+                                      })}
+                                    </span>
+                                    <span className="text-xs text-muted-foreground uppercase tracking-wider font-semibold">
+                                      Por Diária
+                                    </span>
+                                  </div>
+                                  <a
+                                    href={`https://wa.me/5527999831006?text=${encodeURIComponent(`Olá, gostaria de consultar a disponibilidade da ${unit.name}`)}`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center justify-center bg-primary text-primary-foreground px-5 py-2 rounded-full text-sm font-semibold hover:opacity-90 transition-opacity shadow-sm"
+                                  >
+                                    {t("innPage.reserveAction")}
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+
+                        {/* Setas de Navegação */}
+                        {c.units.length > 1 && (
+                          <div className="absolute top-1/2 -translate-y-1/2 left-2 right-2 md:left-4 md:right-4 flex justify-between pointer-events-none">
+                            <button
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                prevSlide(c.units.length);
+                              }}
+                              className="w-10 h-10 bg-background/90 rounded-full flex items-center justify-center shadow-elevated pointer-events-auto hover:bg-background transition-colors text-foreground border border-border"
+                            >
+                              <ChevronLeft className="w-6 h-6" />
+                            </button>
+                            <button
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                nextSlide(c.units.length);
+                              }}
+                              className="w-10 h-10 bg-background/90 rounded-full flex items-center justify-center shadow-elevated pointer-events-auto hover:bg-background transition-colors text-foreground border border-border"
+                            >
+                              <ChevronRight className="w-6 h-6" />
+                            </button>
+                          </div>
+                        )}
+
+                        {/* Bolinhas (Dots) de paginação */}
+                        {c.units.length > 1 && (
+                          <div className="flex justify-center gap-2 mt-6">
+                            {c.units.map((_, dotIdx) => (
+                              <button
+                                key={dotIdx}
+                                onClick={() => setCurrentSlide(dotIdx)}
+                                className={`h-2 rounded-full transition-all duration-300 ${
+                                  dotIdx === currentSlide
+                                    ? "w-6 bg-primary"
+                                    : "w-2 bg-primary/30 hover:bg-primary/50"
+                                }`}
+                                aria-label={`Ir para slide ${dotIdx + 1}`}
+                              />
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </motion.div>
             ))}
           </div>
 
-          {/* Seção Nova: Valores Adicionais */}
+          {/* Valores Adicionais */}
           {additionalPricing && additionalPricing.length > 0 && (
             <motion.div
               {...fadeUp}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="mt-8 bg-background rounded-xl p-6 shadow-soft"
+              className="mt-12 bg-background rounded-xl p-6 sm:p-8 shadow-soft border border-border/50"
             >
-              <h4 className="font-heading text-md font-bold text-foreground border-b border-border pb-2 mb-4">
+              <h4 className="font-heading text-lg font-bold text-foreground border-b border-border pb-3 mb-5">
                 Valores para Pessoa Adicional / Pet
               </h4>
-              <div className="grid sm:grid-cols-2 gap-4">
+              <div className="grid sm:grid-cols-2 gap-x-8 gap-y-4">
                 {additionalPricing.map((item, idx) => (
                   <div
                     key={idx}
-                    className="flex justify-between items-center text-sm"
+                    className="flex justify-between items-center text-sm border-b border-border/30 pb-2 last:border-0 sm:last:border-b"
                   >
                     <span className="text-muted-foreground">{item.label}</span>
                     <span className="font-semibold text-primary">
@@ -180,7 +372,7 @@ const Pousada = () => {
             </motion.div>
           )}
 
-          <p className="text-xs text-muted-foreground text-center mt-6">
+          <p className="text-sm text-muted-foreground text-center mt-8 font-medium">
             {t("innPage.jacuzziNote")}
           </p>
         </div>

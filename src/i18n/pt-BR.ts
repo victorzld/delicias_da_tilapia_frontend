@@ -40,7 +40,7 @@ const ptBR = {
     items: [
       {
         name: "Ivan luciano Oliveira",
-        text: "Ficamos muito satisfeito. Chopp gelado , comida não demorou e a recepção da família e colaboradores foi ótima. Nota 10 atendeu e superou nossa expectativa.",
+        text: "Ficamos muito satisfeito. Chopp gelado , comida não demorou e a recepção da família e colaboradores foi ótima. Nota 10 atendeu e superou nossas expectativas.",
       },
       {
         name: "Elaine Brasil",
@@ -302,8 +302,7 @@ const ptBR = {
           { name: "Jabuticaba suave ou semi seco", desc: "", price: 22 },
           {
             name: "Garrafa Vinho",
-            desc: "Consulte-nos sobre rótulos e valores. Visite nossa adega",
-            //price: 0,
+            desc: "Consulte-nos sobre rótulos e valores. Visite nossa adega" /* price: 0 */,
           },
         ],
       },
@@ -378,36 +377,135 @@ const ptBR = {
     chaletsDescription:
       "Confira nossas opções de hospedagem. Valores de 1 diária para casal.",
     toConsult: "A consultar",
+    expandOptions: "Ver opções",
+    hideOptions: "Ocultar",
+    reserveAction: "Reservar",
+    genericImageNoteChale:
+      "*Imagem meramente ilustrativa. Consultar imagem do chalé e sua disponibilidade através do nosso contato.",
+    genericImageNoteSuite:
+      "*Imagem meramente ilustrativa. Consultar imagem da suíte e sua disponibilidade através do nosso contato.",
     chalets: [
       {
         name: "Suíte 1, 2, 3 e 4",
         desc: "Suítes confortáveis para casal.",
         capacity: "2 pessoas",
         price: 450,
+        units: [
+          {
+            name: "Suíte 01",
+            desc: "Suíte aconchegante perfeita para casais.",
+            image: "/src/assets/images/chale.png",
+            isGenericImage: true,
+          },
+          {
+            name: "Suíte 02",
+            desc: "Suíte aconchegante perfeita para casais.",
+            image: "/src/assets/images/chale.png",
+            isGenericImage: true,
+          },
+          {
+            name: "Suíte 03",
+            desc: "Suíte aconchegante perfeita para casais.",
+            image: "/src/assets/images/chale.png",
+            isGenericImage: true,
+          },
+          {
+            name: "Suíte 04",
+            desc: "Suíte aconchegante perfeita para casais.",
+            image: "/src/assets/images/chale.png",
+            isGenericImage: true,
+          },
+        ],
       },
       {
         name: "Suíte 5 (da piscina)",
         desc: "Suíte especial localizada próxima à piscina.",
         capacity: "2 pessoas",
         price: 450,
+        units: [
+          {
+            name: "Suíte 05",
+            desc: "Localização privilegiada, de frente para a piscina.",
+            image: "/src/assets/images/chale.png",
+            isGenericImage: true,
+          },
+        ],
       },
       {
         name: "Chalé 01, 02, 03, 04 e 09",
         desc: "Chalés padrão de 1 quarto, com varanda e vista para as montanhas.",
         capacity: "2 pessoas",
         price: 480,
+        units: [
+          {
+            name: "Chalé 01",
+            desc: "Chalé charmoso com 1 quarto e vista para a natureza.",
+            image: "/src/assets/images/chales/chale1.jpg",
+          },
+          {
+            name: "Chalé 02",
+            desc: "Chalé charmoso com 1 quarto e vista para a natureza.",
+            image: "/src/assets/images/chales/chale2.jpg",
+          },
+          {
+            name: "Chalé 03",
+            desc: "Chalé charmoso com 1 quarto e vista para a natureza.",
+            image: "/src/assets/images/chales/chale3.jpg",
+          },
+          {
+            name: "Chalé 04",
+            desc: "Chalé charmoso com 1 quarto e vista para a natureza.",
+            image: "/src/assets/images/chales/chale4.jpg",
+          },
+          {
+            name: "Chalé 09",
+            desc: "Chalé charmoso com 1 quarto e vista para a natureza.",
+            image: "/src/assets/images/chales/chale9.jpg",
+          },
+        ],
       },
       {
         name: "Chalé 08 e 10",
         desc: "Chalés com hidromassagem, perfeitos para casais.",
         capacity: "2 pessoas",
         price: 790,
+        units: [
+          {
+            name: "Chalé com Hidro 08",
+            desc: "Chalé romântico equipado com banheira de hidromassagem exclusiva.",
+            image: "/src/assets/images/chale.png",
+            isGenericImage: true,
+          },
+          {
+            name: "Chalé com Hidro 10",
+            desc: "Chalé romântico equipado com banheira de hidromassagem exclusiva.",
+            image: "/src/assets/images/chale.png",
+            isGenericImage: true,
+          },
+        ],
       },
       {
         name: "Chalé 06, 07 e 11",
         desc: "Chalés amplos com 2 quartos, ideais para famílias.",
         capacity: "4 pessoas",
         price: 570,
+        units: [
+          {
+            name: "Chalé 06 (2 Quartos)",
+            desc: "Chalé espaçoso com 2 quartos, perfeito para toda a família.",
+            image: "/src/assets/images/chales/chale6.jpeg",
+          },
+          {
+            name: "Chalé 07 (2 Quartos)",
+            desc: "Chalé espaçoso com 2 quartos, perfeito para toda a família.",
+            image: "/src/assets/images/chales/chale7.jpeg",
+          },
+          {
+            name: "Chalé 11 (2 Quartos)",
+            desc: "Chalé espaçoso com 2 quartos, perfeito para toda a família.",
+            image: "/src/assets/images/chales/chale11.jpeg",
+          },
+        ],
       },
     ],
     additionalPricing: [

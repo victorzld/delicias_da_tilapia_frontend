@@ -270,14 +270,14 @@ const en = {
           { name: "Tonic Water", desc: "", price: 8 },
           { name: "H2OH!", desc: "", price: 8 },
           { name: "Soft Drink Can / KS", desc: "", price: 8 },
-          { name: "Soft Drink 1L", desc: "", price: 12 },
-          { name: "Soft Drink 1.5L", desc: "", price: 17 },
+          { name: "Soft Drink 1 L", desc: "", price: 12 },
+          { name: "Soft Drink 1.5 L", desc: "", price: 17 },
           { name: "Energy Drink", desc: "", price: 20 },
           { name: "Juice Glass", desc: "350 ml", price: 10 },
           { name: "Juice Pitcher", desc: "700 ml", price: 17 },
           {
             name: "Juice Pitcher",
-            desc: "1L - orange, acerola, or passion fruit",
+            desc: "1 L - orange, acerola, or passion fruit",
             price: 28,
           },
         ],
@@ -318,7 +318,6 @@ const en = {
           {
             name: "Wine Bottle",
             desc: "Consult us for labels and prices. Visit our wine cellar",
-            //price: 0,
           },
         ],
       },
@@ -393,36 +392,135 @@ const en = {
     chaletsDescription:
       "Check our lodging options. Prices are for 1 night for a couple.",
     toConsult: "On request",
+    expandOptions: "View options",
+    hideOptions: "Hide",
+    reserveAction: "Book Now",
+    genericImageNoteChale:
+      "*Illustrative image only. Please check chalet pictures and availability through our contact.",
+    genericImageNoteSuite:
+      "*Illustrative image only. Please check suite pictures and availability through our contact.",
     chalets: [
       {
         name: "Suite 1, 2, 3 and 4",
         desc: "Comfortable suites for couples.",
         capacity: "2 guests",
         price: 450,
+        units: [
+          {
+            name: "Suite 01",
+            desc: "Cozy suite perfect for couples.",
+            image: "/src/assets/images/chale.png",
+            isGenericImage: true,
+          },
+          {
+            name: "Suite 02",
+            desc: "Cozy suite perfect for couples.",
+            image: "/src/assets/images/chale.png",
+            isGenericImage: true,
+          },
+          {
+            name: "Suite 03",
+            desc: "Cozy suite perfect for couples.",
+            image: "/src/assets/images/chale.png",
+            isGenericImage: true,
+          },
+          {
+            name: "Suite 04",
+            desc: "Cozy suite perfect for couples.",
+            image: "/src/assets/images/chale.png",
+            isGenericImage: true,
+          },
+        ],
       },
       {
         name: "Suite 5 (Poolside)",
         desc: "Special suite located near the pool.",
         capacity: "2 guests",
         price: 450,
+        units: [
+          {
+            name: "Suite 05",
+            desc: "Prime location, facing the pool.",
+            image: "/src/assets/images/chale.png",
+            isGenericImage: true,
+          },
+        ],
       },
       {
         name: "Chalet 01, 02, 03, 04 and 09",
         desc: "Standard 1-bedroom chalets with veranda and mountain views.",
         capacity: "2 guests",
         price: 480,
+        units: [
+          {
+            name: "Chalet 01",
+            desc: "Charming 1-bedroom chalet with nature views.",
+            image: "/src/assets/images/chales/chale1.jpg",
+          },
+          {
+            name: "Chalet 02",
+            desc: "Charming 1-bedroom chalet with nature views.",
+            image: "/src/assets/images/chales/chale2.jpg",
+          },
+          {
+            name: "Chalet 03",
+            desc: "Charming 1-bedroom chalet with nature views.",
+            image: "/src/assets/images/chales/chale3.jpg",
+          },
+          {
+            name: "Chalet 04",
+            desc: "Charming 1-bedroom chalet with nature views.",
+            image: "/src/assets/images/chales/chale4.jpg",
+          },
+          {
+            name: "Chalet 09",
+            desc: "Charming 1-bedroom chalet with nature views.",
+            image: "/src/assets/images/chales/chale9.jpg",
+          },
+        ],
       },
       {
         name: "Chalet 08 and 10",
         desc: "Chalets with jacuzzi, perfect for couples.",
         capacity: "2 guests",
         price: 790,
+        units: [
+          {
+            name: "Jacuzzi Chalet 08",
+            desc: "Romantic chalet equipped with an exclusive jacuzzi.",
+            image: "/src/assets/images/chale.png",
+            isGenericImage: true,
+          },
+          {
+            name: "Jacuzzi Chalet 10",
+            desc: "Romantic chalet equipped with an exclusive jacuzzi.",
+            image: "/src/assets/images/chale.png",
+            isGenericImage: true,
+          },
+        ],
       },
       {
         name: "Chalet 06, 07 and 11",
         desc: "Spacious 2-bedroom chalets, ideal for families.",
         capacity: "4 guests",
         price: 570,
+        units: [
+          {
+            name: "Chalet 06 (2 Bedrooms)",
+            desc: "Spacious 2-bedroom chalet, perfect for the whole family.",
+            image: "/src/assets/images/chales/chale6.jpeg",
+          },
+          {
+            name: "Chalet 07 (2 Bedrooms)",
+            desc: "Spacious 2-bedroom chalet, perfect for the whole family.",
+            image: "/src/assets/images/chales/chale7.jpeg",
+          },
+          {
+            name: "Chalet 11 (2 Bedrooms)",
+            desc: "Spacious 2-bedroom chalet, perfect for the whole family.",
+            image: "/src/assets/images/chales/chale11.jpeg",
+          },
+        ],
       },
     ],
     additionalPricing: [
