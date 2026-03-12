@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import heroBg from "@/assets/hero-bg.jpg";
 import SectionTitle from "@/components/SectionTitle";
+import hero from "@/assets/images/hero.jpg"
 
 const fadeUp = {
   initial: { opacity: 0, y: 40 },
@@ -18,7 +19,11 @@ const SobreNos = () => {
   return (
     <div className="pt-16">
       <section className="relative h-[50vh] min-h-[350px] flex items-center justify-center overflow-hidden">
-        <img src={heroBg} alt="Delícias da Tilápia" className="absolute inset-0 w-full h-full object-cover" />
+        <img 
+          src={hero} 
+          alt="Delícias da Tilápia" 
+          className="absolute inset-0 w-full h-full object-cover" 
+        />
         <div className="absolute inset-0 bg-gradient-hero" />
         <div className="relative z-10 text-center px-4">
           <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="font-heading text-4xl md:text-6xl font-bold text-primary-foreground">
@@ -30,7 +35,7 @@ const SobreNos = () => {
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4 lg:px-8 max-w-4xl">
           <SectionTitle subtitle={t("about.historySubtitle")} title={t("about.historyTitle")} />
-          <div className="space-y-6 text-muted-foreground leading-relaxed">
+          <div className="space-y-6 text-muted-foreground leading-relaxed text-justify">
             {paragraphs.map((p, i) => (
               <motion.p key={i} {...fadeUp} transition={{ duration: 0.6, delay: i * 0.1 }} dangerouslySetInnerHTML={{ __html: p }} />
             ))}
