@@ -23,6 +23,12 @@ const Navbar = () => {
     i18n.changeLanguage(i18n.language === "pt" ? "en" : "pt");
   };
 
+  // Função centralizada para fechar o menu e forçar o scroll para o topo
+  const handleLinkClick = () => {
+    setOpen(false);
+    window.scrollTo(0, 0);
+  };
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border">
       {/* A mágica acontece aqui: grid-cols-2 no mobile, lg:grid-cols-3 no desktop */}
@@ -32,6 +38,7 @@ const Navbar = () => {
           <Link
             to="/"
             aria-label="Início"
+            onClick={handleLinkClick}
             className="inline-flex items-center gap-2"
           >
             <img
@@ -48,6 +55,7 @@ const Navbar = () => {
             <Link
               key={link.path}
               to={link.path}
+              onClick={() => window.scrollTo(0, 0)}
               className={`whitespace-nowrap text-sm font-medium transition-colors hover:text-primary ${
                 location.pathname === link.path
                   ? "text-primary"
@@ -106,7 +114,7 @@ const Navbar = () => {
                 <Link
                   key={link.path}
                   to={link.path}
-                  onClick={() => setOpen(false)}
+                  onClick={handleLinkClick}
                   className={`text-sm font-medium py-2 transition-colors ${
                     location.pathname === link.path
                       ? "text-primary"
@@ -117,7 +125,10 @@ const Navbar = () => {
                 </Link>
               ))}
               <button
-                onClick={toggleLang}
+                onClick={() => {
+                  toggleLang();
+                  setOpen(false);
+                }}
                 className="flex items-center gap-2 text-sm font-medium py-2 text-foreground/70 hover:text-primary transition-colors"
               >
                 <Globe className="w-4 h-4" />
@@ -127,6 +138,7 @@ const Navbar = () => {
                 href="https://wa.me/5527999831006"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => setOpen(false)}
                 className="inline-flex items-center justify-center gap-2 bg-gradient-warm text-primary-foreground px-4 py-2 rounded-full text-sm font-semibold mt-2"
               >
                 <Phone className="w-4 h-4" />
