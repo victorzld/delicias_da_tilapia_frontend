@@ -54,10 +54,10 @@ const Contato = () => {
               </div>
 
               <div className="flex gap-4">
-                <a href="https://www.instagram.com/deliciasdatilapia/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-card rounded-xl px-5 py-3 shadow-soft text-foreground hover:text-primary transition-colors text-sm font-medium">
+                <a href="https://www.instagram.com/deliciasdatilapia/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-card rounded-xl px-5 py-3 shadow-soft text-foreground border border-transparent hover:border-border transition-[border-color] duration-300 hover:text-primary text-sm font-medium">
                   <Instagram className="w-5 h-5" /> Instagram
                 </a>
-                <a href="https://www.facebook.com/DeliciasTilapia/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-card rounded-xl px-5 py-3 shadow-soft text-foreground hover:text-primary transition-colors text-sm font-medium">
+                <a href="https://www.facebook.com/DeliciasTilapia/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-card rounded-xl px-5 py-3 shadow-soft text-foreground border border-transparent hover:border-border transition-[border-color] duration-300 hover:text-primary text-sm font-medium">
                   <Facebook className="w-5 h-5" /> Facebook
                 </a>
               </div>

@@ -3,27 +3,36 @@ import { motion } from "framer-motion";
 import { UtensilsCrossed, Home, Fish, MapPin, Phone, Star, ArrowRight, Facebook, Instagram } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import Autoplay from "embla-carousel-autoplay";
-import heroBg from "@/assets/hero-bg.jpg";
-import pratoImg from "@/assets/prato-tilapia.jpg";
-import chaleImg from "@/assets/chale.jpg";
-import pesqueImg from "@/assets/pesque-pague.jpg";
-import atrativoPiscina from "@/assets/atrativo-piscina.jpg";
-import atrativoCachoeira from "@/assets/atrativo-cachoeira.jpg";
-import atrativoTrilha from "@/assets/atrativo-trilha.jpg";
-import atrativoChale from "@/assets/atrativo-chale.jpg";
-import atrativoPesca from "@/assets/atrativo-pesca.jpg";
-import atrativoGastronomia from "@/assets/atrativo-gastronomia.jpg";
+import hero from "@/assets/images/hero.jpg";
 import SectionTitle from "@/components/SectionTitle";
+import restaurante from "@/assets/images/restaurante.jpeg";
+import pousada from "@/assets/images/pousada.jpeg";
+import pesque_pague from "@/assets/images/pesque_pague.jpeg";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+import chales from "@/assets/images/atrativos/chales.jpg";
+import labirinto from "@/assets/images/atrativos/labirinto.jpg";
+import parquinho from "@/assets/images/atrativos/parquinho.jpeg";
+import pesque_pague_atr from "@/assets/images/atrativos/pesque_pague_atr.jpg";
+import piscina from "@/assets/images/atrativos/piscina.jpg";
+import resturante from "@/assets/images/atrativos/restaurante.jpg";
+import ivan from "@/assets/images/depoimentos/ivan.png";
+import elaine from "@/assets/images/depoimentos/elaine.png";
+import rayra from "@/assets/images/depoimentos/rayra.png";
 
 const attractionImages = [
-  atrativoPiscina,
-  atrativoCachoeira,
-  atrativoTrilha,
-  atrativoChale,
-  atrativoPesca,
-  atrativoGastronomia,
+  chales,
+  labirinto,
+  parquinho,
+  piscina,
+  pesque_pague_atr,
+  resturante
 ];
+
+const testimonialPhotos: Record<string, string> = {
+  "Ivan luciano Oliveira": ivan,
+  "Elaine Brasil": elaine,
+  "Ráyra Santos": rayra,
+};
 
 const fadeUp = {
   initial: { opacity: 0, y: 40 },
@@ -36,9 +45,9 @@ const Index = () => {
   const { t } = useTranslation();
 
   const highlights = [
-    { icon: UtensilsCrossed, title: t("highlights.restaurant.title"), desc: t("highlights.restaurant.desc"), img: pratoImg, link: "/restaurante" },
-    { icon: Home, title: t("highlights.inn.title"), desc: t("highlights.inn.desc"), img: chaleImg, link: "/pousada" },
-    { icon: Fish, title: t("highlights.fishing.title"), desc: t("highlights.fishing.desc"), img: pesqueImg, link: "/pesque-e-pague" },
+    { icon: UtensilsCrossed, title: t("highlights.restaurant.title"), desc: t("highlights.restaurant.desc"), img: restaurante, link: "/restaurante" },
+    { icon: Home, title: t("highlights.inn.title"), desc: t("highlights.inn.desc"), img: pousada, link: "/pousada" },
+    { icon: Fish, title: t("highlights.fishing.title"), desc: t("highlights.fishing.desc"), img: pesque_pague, link: "/pesque-e-pague" },
   ];
 
   const testimonials = t("testimonials.items", { returnObjects: true }) as Array<{ name: string; text: string }>;
@@ -48,7 +57,7 @@ const Index = () => {
     <div className="flex flex-col">
       {/* Hero */}
       <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
-        <img src={heroBg} alt="Delícias da Tilápia" className="absolute inset-0 w-full h-full object-cover" />
+        <img src={hero} alt="Delícias da Tilápia" className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-hero" />
         <div className="relative z-10 text-center px-4 max-w-4xl">
           <motion.span initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="inline-block text-warm-gold text-sm uppercase tracking-[0.3em] font-semibold mb-4">
@@ -81,7 +90,7 @@ const Index = () => {
               <motion.div key={item.link} {...fadeUp} transition={{ duration: 0.6, delay: i * 0.15 }}>
                 <Link to={item.link} className="group block">
                   <div className="relative rounded-2xl overflow-hidden shadow-soft hover:shadow-elevated transition-shadow duration-300">
-                    <img src={item.img} alt={item.title} className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <img src={item.img} alt={item.title} className="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-500" />
                     <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 to-transparent" />
                     <div className="absolute bottom-0 left-0 right-0 p-6">
                       <div className="flex items-center gap-2 mb-2">
@@ -114,7 +123,7 @@ const Index = () => {
               <CarouselContent className="-ml-4">
                 {attractions.map((item, i) => (
                   <CarouselItem key={i} className="pl-4 basis-full sm:basis-1/2 lg:basis-1/3">
-                    <div className="relative rounded-2xl overflow-hidden shadow-soft group h-80">
+                    <div className="cursor-pointer relative rounded-2xl overflow-hidden shadow-soft group h-80">
                       <img
                         src={attractionImages[i]}
                         alt={item.title}
@@ -149,7 +158,7 @@ const Index = () => {
                 href="https://www.facebook.com/DeliciasTilapia/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center gap-4 bg-card rounded-2xl px-8 py-6 shadow-soft hover:shadow-elevated transition-all duration-300 w-full sm:w-auto"
+                className="group flex items-center gap-4 bg-card rounded-2xl px-8 py-6 shadow-soft border border-transparent hover:border-border transition-[border-color] duration-300 w-full sm:w-auto"
               >
                 <div className="flex items-center justify-center w-14 h-14 rounded-full bg-[hsl(220,46%,48%)] text-primary-foreground shrink-0">
                   <Facebook className="w-7 h-7" />
@@ -163,9 +172,9 @@ const Index = () => {
                 href="https://www.instagram.com/deliciasdatilapia/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center gap-4 bg-card rounded-2xl px-8 py-6 shadow-soft hover:shadow-elevated transition-all duration-300 w-full sm:w-auto"
+                className="group flex items-center gap-4 bg-card rounded-2xl px-8 py-6 shadow-soft border border-transparent hover:border-border transition-[border-color] duration-300 w-full sm:w-auto"
               >
-                <div className="flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-br from-[hsl(37,97%,70%)] via-[hsl(340,75%,55%)] to-[hsl(280,70%,50%)] text-primary-foreground shrink-0">
+                <div className=" flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-br from-[hsl(37,97%,70%)] via-[hsl(340,75%,55%)] to-[hsl(280,70%,50%)] text-primary-foreground shrink-0">
                   <Instagram className="w-7 h-7" />
                 </div>
                 <div className="text-left">
@@ -184,14 +193,17 @@ const Index = () => {
           <SectionTitle subtitle={t("testimonials.subtitle")} title={t("testimonials.title")} />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {testimonials.map((item, i) => (
-              <motion.div key={i} {...fadeUp} transition={{ duration: 0.6, delay: i * 0.1 }} className="bg-background rounded-2xl p-8 shadow-soft">
+              <motion.div key={i} {...fadeUp} transition={{ duration: 0.6, delay: i * 0.1 }} className="bg-background rounded-2xl p-8 shadow-soft flex flex-col h-full">
                 <div className="flex gap-1 mb-4">
                   {[...Array(5)].map((_, j) => (
                     <Star key={j} className="w-4 h-4 fill-warm-gold text-warm-gold" />
                   ))}
                 </div>
                 <p className="text-muted-foreground text-sm leading-relaxed italic">"{item.text}"</p>
-                <p className="mt-4 font-semibold text-foreground text-sm">{item.name}</p>
+                <div className="mt-auto pt-4 flex items-center gap-3">
+                  <img src={testimonialPhotos[item.name]} alt={item.name} className="w-8 h-8 rounded-full object-cover" />
+                  <span className="font-semibold text-foreground text-sm">{item.name}</span>
+                </div>
               </motion.div>
             ))}
           </div>

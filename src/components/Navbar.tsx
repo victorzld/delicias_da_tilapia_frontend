@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Phone, Globe } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import logo from "../assets/images/logo.png";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -24,18 +25,21 @@ const Navbar = () => {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border">
-      <div className="container mx-auto flex items-center justify-between h-16 px-4 lg:px-8">
-        <Link to="/" className="font-heading text-xl font-bold text-primary tracking-tight">
-          Delícias da Tilápia
-        </Link>
+      <div className="container mx-auto grid grid-cols-3 items-center h-24 px-4 lg:px-8">
+        {/* Left: Logo */}
+        <div className="justify-self-start">
+          <Link to="/" aria-label="Início" className="inline-flex items-center gap-2">
+            <img src={logo} alt="Delícias da Tilápia" className="w-24 h-24 object-contain lg:w-24 lg:h-24" />
+          </Link>
+        </div>
 
-        {/* Desktop */}
-        <div className="hidden lg:flex items-center gap-6">
+        {/* Center: Nav links (desktop) */}
+        <div className="hidden lg:flex justify-center items-center gap-6">
           {navLinks.map((link) => (
             <Link
               key={link.path}
               to={link.path}
-              className={`text-sm font-medium transition-colors hover:text-primary ${
+              className={`whitespace-nowrap text-sm font-medium transition-colors hover:text-primary ${
                 location.pathname === link.path
                   ? "text-primary"
                   : "text-foreground/70"
@@ -44,33 +48,39 @@ const Navbar = () => {
               {link.label}
             </Link>
           ))}
-          <button
-            onClick={toggleLang}
-            className="flex items-center gap-1.5 text-sm font-medium text-foreground/70 hover:text-primary transition-colors"
-            aria-label="Change language"
-          >
-            <Globe className="w-4 h-4" />
-            {i18n.language === "pt" ? "EN" : "PT"}
-          </button>
-          <a
-            href="https://wa.me/5527999831006"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-gradient-warm text-primary-foreground px-4 py-2 rounded-full text-sm font-semibold shadow-warm hover:opacity-90 transition-opacity"
-          >
-            <Phone className="w-4 h-4" />
-            {t("nav.reserve")}
-          </a>
         </div>
 
-        {/* Mobile toggle */}
-        <button
-          onClick={() => setOpen(!open)}
-          className="lg:hidden text-foreground"
-          aria-label="Menu"
-        >
-          {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
+        {/* Right: Actions (desktop) and Mobile toggle */}
+        <div className="justify-self-end flex items-center">
+          <div className="hidden lg:flex items-center gap-4">
+            <button
+              onClick={toggleLang}
+              className="flex items-center gap-1.5 text-sm font-medium text-foreground/70 hover:text-primary transition-colors"
+              aria-label="Change language"
+            >
+              <Globe className="w-4 h-4" />
+              {i18n.language === "pt" ? "EN" : "PT"}
+            </button>
+            <a
+              href="https://wa.me/5527999831006"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-gradient-warm text-primary-foreground px-4 py-2 rounded-full text-sm font-semibold shadow-warm hover:opacity-90 transition-opacity"
+            >
+              <Phone className="w-4 h-4" />
+              {t("nav.reserve")}
+            </a>
+          </div>
+
+          {/* Mobile toggle */}
+          <button
+            onClick={() => setOpen(!open)}
+            className="lg:hidden text-foreground"
+            aria-label="Menu"
+          >
+            {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}
