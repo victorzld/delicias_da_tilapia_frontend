@@ -13,8 +13,39 @@ import {
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import SectionTitle from "@/components/SectionTitle";
-import chales from "@/assets/images/atrativos/chales.jpg";
-import chale from "@/assets/images/chale.png";
+
+// Importações das imagens principais
+import chalesHeader from "@/assets/images/atrativos/chales.jpg";
+import chalePrincipal from "@/assets/images/chale.png";
+
+// Importações individuais dos chalés para o Vite processar em produção
+import chale1 from "@/assets/images/chales/chale1.jpg";
+import chale2 from "@/assets/images/chales/chale2.jpg";
+import chale3 from "@/assets/images/chales/chale3.jpg";
+import chale4 from "@/assets/images/chales/chale4.jpg";
+import chale5 from "@/assets/images/chales/chale5.jpg";
+import chale6 from "@/assets/images/chales/chale6.jpeg";
+import chale7 from "@/assets/images/chales/chale7.jpeg";
+import chale8 from "@/assets/images/chales/chale8.jpg";
+import chale9 from "@/assets/images/chales/chale9.jpg";
+import chale10 from "@/assets/images/chales/chale10.jpeg";
+import chale11 from "@/assets/images/chales/chale11.jpeg";
+
+// Mapeamento que liga o nome do ficheiro (vindo da tradução) à variável importada
+const imageMap: Record<string, string> = {
+  "chale.png": chalePrincipal,
+  "chale1.jpg": chale1,
+  "chale2.jpg": chale2,
+  "chale3.jpg": chale3,
+  "chale4.jpg": chale4,
+  "chale5.jpg": chale5,
+  "chale6.jpeg": chale6,
+  "chale7.jpeg": chale7,
+  "chale8.jpg": chale8,
+  "chale9.jpg": chale9,
+  "chale10.jpeg": chale10,
+  "chale11.jpeg": chale11,
+};
 
 const fadeUp = {
   initial: { opacity: 0, y: 40 },
@@ -79,7 +110,7 @@ const Pousada = () => {
     }
   };
 
-  // Tipagem atualizada para receber a nova propriedade 'isGenericImage'
+  // Tipagem atualizada
   const chalets = t("innPage.chalets", { returnObjects: true }) as Array<{
     name: string;
     desc: string;
@@ -111,7 +142,7 @@ const Pousada = () => {
     <div className="pt-16">
       <section className="relative h-[50vh] min-h-[350px] flex items-center justify-center overflow-hidden">
         <img
-          src={chales}
+          src={chalesHeader}
           alt="Pousada"
           className="absolute inset-0 w-full h-full object-cover"
         />
@@ -140,7 +171,7 @@ const Pousada = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
             <motion.div {...fadeUp}>
               <img
-                src={chale}
+                src={chalePrincipal}
                 alt="Chalé"
                 className="rounded-2xl shadow-elevated w-full h-[400px] object-cover"
               />
@@ -273,9 +304,10 @@ const Pousada = () => {
                                   {/* Lado Esquerdo: Imagem + Aviso Condicional */}
                                   <div className="w-full md:w-1/2 flex flex-col gap-2">
                                     <div className="w-full aspect-video bg-muted rounded-xl flex flex-col items-center justify-center text-muted-foreground border border-border overflow-hidden relative pointer-events-none">
-                                      {unit.image ? (
+                                      {/* ATENÇÃO AQUI: Usando o imageMap para processar a imagem correta */}
+                                      {unit.image && imageMap[unit.image] ? (
                                         <img
-                                          src={unit.image}
+                                          src={imageMap[unit.image]}
                                           alt={unit.name}
                                           className="w-full h-full object-cover absolute inset-0"
                                           draggable={false}
