@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import { X } from "lucide-react";
 import SectionTitle from "@/components/SectionTitle";
 import restaurante from "@/assets/images/atrativos/restaurante.jpg";
 import prato from "@/assets/images/prato.png";
@@ -14,6 +16,9 @@ const fadeUp = {
 const Restaurante = () => {
   const { t } = useTranslation();
 
+  // Estado para armazenar os filtros selecionados
+  const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
+
   // Atualizando a tipagem para incluir o 'price' como number OU um array de numbers
   const categories = t("restaurantPage.categories", {
     returnObjects: true,
@@ -21,6 +26,27 @@ const Restaurante = () => {
     name: string;
     items: Array<{ name: string; desc: string; price: number | number[] }>;
   }>;
+
+  // Função para adicionar ou remover um filtro
+  const toggleFilter = (categoryName: string) => {
+    setSelectedFilters(
+      (prev) =>
+        prev.includes(categoryName)
+          ? prev.filter((name) => name !== categoryName) // Remove se já estiver selecionado
+          : [...prev, categoryName], // Adiciona se não estiver
+    );
+  };
+
+  // Função para limpar todos os filtros
+  const clearFilters = () => {
+    setSelectedFilters([]);
+  };
+
+  // Categorias filtradas que serão renderizadas na tela
+  const filteredCategories =
+    selectedFilters.length > 0
+      ? categories.filter((cat) => selectedFilters.includes(cat.name))
+      : categories;
 
   return (
     <div className="pt-16">
@@ -85,12 +111,49 @@ const Restaurante = () => {
             title={t("restaurantPage.menuTitle")}
             description={t("restaurantPage.menuDescription")}
           />
+
+          {/* Seção de Filtros */}
+          <motion.div
+            {...fadeUp}
+            className="mb-12 flex flex-wrap gap-3 justify-center"
+          >
+            {categories.map((cat) => {
+              const isSelected = selectedFilters.includes(cat.name);
+              return (
+                <button
+                  key={cat.name}
+                  onClick={() => toggleFilter(cat.name)}
+                  className={`px-4 py-2 rounded-full text-sm font-semibold transition-all border ${
+                    isSelected
+                      ? "bg-primary text-primary-foreground border-primary shadow-sm"
+                      : "bg-background text-foreground border-border hover:border-primary/50"
+                  }`}
+                >
+                  {cat.name}
+                </button>
+              );
+            })}
+
+            {/* Botão de Limpar (Aparece apenas se houver algum filtro selecionado) */}
+            {selectedFilters.length > 0 && (
+              <button
+                onClick={clearFilters}
+                className="flex items-center gap-1 px-4 py-2 rounded-full text-sm font-semibold bg-muted text-muted-foreground hover:bg-destructive hover:text-destructive-foreground transition-colors border border-transparent"
+                title="Limpar filtros"
+              >
+                Limpar <X className="w-4 h-4" />
+              </button>
+            )}
+          </motion.div>
+
+          {/* Listagem do Cardápio */}
           <div className="space-y-12">
-            {categories.map((cat, ci) => (
+            {filteredCategories.map((cat, ci) => (
               <motion.div
-                key={ci}
-                {...fadeUp}
-                transition={{ duration: 0.6, delay: ci * 0.1 }}
+                key={cat.name} // Usando o nome como key para evitar problemas de re-renderização na filtragem
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: ci * 0.05 }} // Animação mais rápida ao filtrar
               >
                 <h3 className="font-heading text-2xl font-bold text-foreground mb-6 pb-2 border-b border-border">
                   {cat.name}
@@ -126,6 +189,13 @@ const Restaurante = () => {
                 </div>
               </motion.div>
             ))}
+
+            {/* Mensagem caso o filtro falhe (edge case) */}
+            {filteredCategories.length === 0 && (
+              <div className="text-center text-muted-foreground py-8">
+                Nenhum item encontrado para o filtro selecionado.
+              </div>
+            )}
           </div>
         </div>
       </section>
